@@ -1,0 +1,36 @@
+# Hermes Agent — self-improving AI agent with persistent memory (Nous Research)
+# Quick start:
+#   cp .env.example .env      # then set the dashboard basic-auth credentials
+#   docker compose up -d
+#   open http://localhost:8080
+#
+# Two things this file gets right that a naive `docker run` does not:
+#
+# 1. `hermes gateway run` on start. The image's cont-init profile reconciler
+#    only auto-starts profiles whose last desired_state was "running". On a
+#    fresh volume the default profile is merely registered, so without this
+#    the gateway stays down forever. It returns immediately; the gateway is
+#    supervised by s6. `sleep infinity` then holds the supervision tree open,
+#    since /init brings everything down when its main program exits.
+#
+# 2. Dashboard basic auth. Since the June 2026 hardening the auth gate engages
+#    on every non-loopback bind, and --insecure / HERMES_DASHBOARD_INSECURE are
+#    accepted but ignored. Without credentials the dashboard fails closed and
+#    takes the container with it.
+
+name: hermes-agent
+
+services:
+  hermes-agent:
+    image: nousresearch/hermes-agent:v2026.8.3
+    container_name: hermes_agent
+    restart: always
+    ports:
+      - "${PORT:-8080}:${PORT:-8080}"
+    env_file: .env
+    volumes:
+      - hermes_data:/opt/data
+    command: ["/bin/bash", "-c", "hermes gateway run; exec sleep infinity"]
+
+volumes:
+  hermes_data:
