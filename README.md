@@ -1,4 +1,4 @@
-# Deploy and Host Hermes Agent on Railway — Self-Improving AI Agent with Persistent Memory
+# Deploy and Host Hermes Agent on Railway — Self-Improving AI Agent with Persistent Memory.
 
 Hermes Agent is an open-source, self-improving AI agent from Nous Research. It has a built-in learning loop that creates skills from experience, refines them during use, and builds a deepening model of the user across sessions using Honcho user modeling. It supports 200+ LLM models and connects to Telegram, Discord, Slack, WhatsApp and WeChat, with a cron scheduler for unattended automation.
 
