@@ -1,10 +1,16 @@
-# Deploy and Host Hermes Agent on Railway — Self-Improving AI Agent with Persistent Memory.
+# Hermes Agent — Self-Hosted, Self-Improving AI Agent (One-Click Railway Deploy)
 
-Hermes Agent is an open-source, self-improving AI agent from Nous Research. It has a built-in learning loop that creates skills from experience, refines them during use, and builds a deepening model of the user across sessions using Honcho user modeling. It supports 200+ LLM models and connects to Telegram, Discord, Slack, WhatsApp and WeChat, with a cron scheduler for unattended automation.
+Hermes Agent is an open-source, **self-hosted AI agent** from Nous Research that you can deploy on Railway in one click. It is self-improving: a built-in learning loop creates skills from experience, refines them during use, and builds a deepening model of you across sessions using Honcho user modeling. It supports 200+ LLM models and connects to Telegram, Discord, Slack, WhatsApp and WeChat, with a cron scheduler for unattended automation. Run it on infrastructure you own — conversation history, learned skills and API keys stay on your own account, with no vendor between you and your model provider.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/ai-agent-persistent-memory?referralCode=zxcgoT&utm_medium=integration&utm_source=template&utm_campaign=generic)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/hermes-1?referralCode=zxcgoT&utm_medium=integration&utm_source=template&utm_campaign=generic)
 
-## 🚀 Quick Start Deployment Guide
+## What Is Hermes Agent?
+
+Hermes Agent is an open-source AI agent that learns from use. Unlike stateless chatbots, it creates and refines its own skills and remembers you across sessions through Honcho user modeling. It routes to 200+ language models, runs on any Docker host, and is fully self-hosted — so your memory, skills and keys live on infrastructure you control.
+
+## 🚀 How to Set Up Hermes Agent (Quick Start)
+
+Follow these steps to install and set up Hermes Agent on Railway:
 
 ### Step 1: Deploy on Railway
 1. Click **Deploy on Railway** above
@@ -45,6 +51,15 @@ A persistent volume at `/opt/data` stores configuration, conversation history, l
 - **Custom skill building** — the agent creates skills from experience and refines them the more you use it
 - **Multi-model routing** — route to 200+ models through OpenRouter, Nous Portal, NVIDIA NIM, OpenAI or a custom OpenAI-compatible endpoint
 - **Data ownership** — keep conversation history, learned skills and API keys on infrastructure you control instead of a vendor's servers
+
+## How Hermes Agent Compares (vs OpenClaw and Other Agents)
+
+If you are weighing Hermes Agent against alternatives like OpenClaw, the differences come down to ownership and learning:
+
+- **Self-hosted, not hosted** — Hermes runs entirely on your own Railway account. Conversation history, learned skills and Honcho memory stay in your `/opt/data` volume, never a vendor's cloud.
+- **Self-improving** — Hermes builds and refines its own skills from experience rather than running a fixed, static toolset.
+- **Model-agnostic** — route across 200+ models (OpenRouter, Nous Portal, NVIDIA NIM, OpenAI, or any OpenAI-compatible endpoint) instead of being locked to a single provider.
+- **Open-source and portable** — the agent and this deployment template are open-source and run on any Docker host, so you are never locked in.
 
 ## Dependencies for Hermes Agent Hosting
 
@@ -160,8 +175,8 @@ Open the dashboard at the URL/port configured in your `.env` and log in with the
 
 ## ❓ Frequently Asked Questions (FAQ)
 
-### How much does it cost to run Hermes Agent on Railway?
-One always-on container on Railway, plus whatever your model provider charges against your own key. There are no per-call platform fees and no per-seat subscription. Railway gives new GitHub signups a $5 trial credit.
+### Is Hermes Agent free to use?
+Hermes Agent itself is open-source and free. On Railway you pay only for one always-on container plus whatever your model provider charges against your own key — there are no per-call platform fees and no per-seat subscription. Railway gives new GitHub signups a $5 trial credit.
 
 ### Is my data private and secure?
 Yes. Conversations, learned skills and Honcho memory stay in your `/opt/data` volume on Railway, and the dashboard is behind basic auth. Prompts still reach whichever model provider you configure.
