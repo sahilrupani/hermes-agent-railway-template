@@ -2,7 +2,7 @@
 
 Hermes Agent is an open-source, **self-hosted AI agent** from Nous Research that you can deploy on Railway in one click. It is self-improving: a built-in learning loop creates skills from experience, refines them during use, and builds a deepening model of you across sessions using Honcho user modeling. It supports 200+ LLM models and connects to Telegram, Discord, Slack, WhatsApp and WeChat, with a cron scheduler for unattended automation. Run it on infrastructure you own — conversation history, learned skills and API keys stay on your own account, with no vendor between you and your model provider.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/hermes-1?referralCode=zxcgoT&utm_medium=integration&utm_source=template&utm_campaign=generic)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/hermes-1)
 
 ## What Is Hermes Agent?
 
