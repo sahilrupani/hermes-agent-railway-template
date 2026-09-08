@@ -4,6 +4,9 @@ Hermes Agent is an open-source, **self-hosted AI agent** from Nous Research that
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/hermes-1)
 
+> [!TIP]
+> **Live in ~2 minutes.** After you click Deploy: pick a dashboard username, generate a password with `openssl rand -hex 32`, and add a Railway Volume at `/opt/data`. Log in — that's it.
+
 ## What Is Hermes Agent?
 
 Hermes Agent is an open-source AI agent that learns from use. Unlike stateless chatbots, it creates and refines its own skills and remembers you across sessions through Honcho user modeling. It routes to 200+ language models, runs on any Docker host, and is fully self-hosted — so your memory, skills and keys live on infrastructure you control.
