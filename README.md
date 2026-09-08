@@ -65,7 +65,7 @@ If you are weighing Hermes Agent against alternatives like OpenClaw, the differe
 
 ### Deployment Dependencies
 
-- [Hermes Agent (template source)](https://github.com/Shinyduo/hermes-agent)
+- [Hermes Agent by Nous Research (upstream)](https://github.com/NousResearch/hermes-agent)
 - [Official Docker image](https://hub.docker.com/r/nousresearch/hermes-agent)
 - [OpenRouter API keys — 200+ models through one key](https://openrouter.ai/keys)
 - [OpenAI API keys (GPT)](https://platform.openai.com/)
@@ -208,4 +208,4 @@ If you hit a problem, open an issue at [https://github.com/sahilrupani/hermes-ag
 
 ---
 
-*This template packages [Hermes Agent](https://github.com/Shinyduo/hermes-agent) for one-click deployment on Railway. It is community-maintained and not affiliated with Nous Research, Shinyduo, or Railway.*
+*This template packages [Hermes Agent](https://github.com/NousResearch/hermes-agent) for one-click deployment on Railway. It is community-maintained and not affiliated with Nous Research, or Railway.*
