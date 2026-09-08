@@ -5,7 +5,7 @@ Hermes Agent is an open-source, **self-hosted AI agent** from Nous Research that
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/hermes-1)
 
 > [!TIP]
-> **Live in ~2 minutes.** After you click Deploy: pick a dashboard username, generate a password with `openssl rand -hex 32`, and add a Railway Volume at `/opt/data`. Log in — that's it.
+> **Live in ~2 minutes.** After you click Deploy: pick a dashboard username, generate a password with `openssl rand -hex 32`, log in at the URL Railway gives you, add a model provider key, and you're running.
 
 ## What Is Hermes Agent?
 
@@ -19,25 +19,21 @@ Follow these steps to install and set up Hermes Agent on Railway:
 1. Click **Deploy on Railway** above
 2. Wait for the container to build and start
 
-### Step 2: Mount a volume
-1. Add a Railway Volume mounted at `/opt/data`
-2. Configuration, conversation history, learned skills and Honcho memory databases all live there
-
-### Step 3: Set dashboard credentials — required
+### Step 2: Set dashboard credentials — required
 1. Set `HERMES_DASHBOARD_BASIC_AUTH_USERNAME` to a username of your choice
 2. Generate a password with `openssl rand -hex 32` and set `HERMES_DASHBOARD_BASIC_AUTH_PASSWORD`
 3. Both are mandatory: the auth gate engages on every non-loopback bind, and without them the dashboard fails closed and takes the container down with it
 
-### Step 4: Log in to the dashboard
+### Step 3: Log in to the dashboard
 1. Open the URL Railway generated for the service
 2. Enter the basic-auth username and password you just set
 
-### Step 5: Configure your model provider
+### Step 4: Configure your model provider
 1. LLM provider keys and channel tokens are set in the WebUI after login, not as deploy-time variables
 2. Add a provider key — see the guides below — and pick a model
 3. Hermes routes to 200+ models via OpenRouter, Nous Portal, NVIDIA NIM, OpenAI, or a custom endpoint
 
-### Step 6: Connect a channel and start
+### Step 5: Connect a channel and start
 1. Add a Telegram, Discord, Slack, WhatsApp or WeChat token in the WebUI if you want the agent reachable from chat apps
 2. Send your first message; the learning loop begins building skills and user context from there
 
@@ -200,7 +196,7 @@ The dashboard auth gate failed closed. `HERMES_DASHBOARD_BASIC_AUTH_USERNAME` an
 Since the June 2026 hardening both flags are accepted but ignored. Basic auth credentials are the only supported way to open the dashboard.
 
 ### Why do memories, skills and configuration reset after a redeploy?
-There's no persistent volume at `/opt/data`. Honcho memory databases, learned skills and config all live there — mount a Railway Volume at that path to keep them across deploys.
+This template provisions a persistent volume at `/opt/data` automatically, where Honcho memory databases, learned skills and config all live. If your data resets across deploys, the volume was detached or removed — re-attach a Railway Volume at `/opt/data` to restore persistence.
 
 ### Why does the gateway never come up on a fresh volume?
 A never-started profile is only registered, not started, so the gateway stays down until a profile's desired state is set to running on first boot.
